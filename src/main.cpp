@@ -43,6 +43,22 @@ void loop() {
 //  MPU6050
 //
 
+void setMotorsLeft(int speed, uint8_t direction)
+{
+  motorFL->setSpeed(speed);
+  motorRL->setSpeed(speed);
+  motorFL->run(direction);
+  motorRL->run(direction);
+}
+
+void setMotorsRight(int speed, uint8_t direction)
+{
+  motorFR->setSpeed(speed);
+  motorRR->setSpeed(speed);
+  motorFR->run(direction);
+  motorRR->run(direction);
+}
+
 //
 //  forward
 //
@@ -81,17 +97,3 @@ void goBackwards(int speed)
   setMotorsLeft(speed, BACKWARD);
   setMotorsLeft(speed, BACKWARD);
 };
-
-void setMotorsLeft (int speed, uint8_t direction){
-  motorFL->setSpeed(speed);
-  motorRL->setSpeed(speed);
-  motorFL->run(direction);
-  motorRL->run(direction);
-}
-
-void setMotorsRight(int speed, uint8_t direction){
-  motorFR->setSpeed(speed);
-  motorRR->setSpeed(speed);
-  motorFR->run(direction);
-  motorRR->run(direction);
-}
